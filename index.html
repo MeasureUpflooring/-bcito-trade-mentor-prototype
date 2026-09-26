@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BCITO Trade Mentor Concept</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6f7;color:#102436}.app{max-width:850px;margin:auto;padding:14px}.hero{background:#071d34;color:white;padding:24px;border-radius:22px}.logo{font-size:30px;font-weight:900}.green{color:#b8d532}.note,.card{background:white;border:1px solid #dbe3e7;border-radius:18px;padding:16px;margin-top:12px}.note{background:#fff7dd}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:12px}.tabs button,.btn{min-height:48px;border:1px solid #dbe3e7;border-radius:12px;background:white;font-weight:800;padding:10px}.tabs button.on,.dark{background:#071d34;color:white}.primary{background:#b8d532!important}.page{display:none}.page.on{display:block}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.choices{display:grid;grid-template-columns:1fr 1fr;gap:7px}textarea{width:100%;min-height:100px;box-sizing:border-box;margin:10px 0;padding:12px;border:1px solid #ccd6db;border-radius:12px;font-size:16px}.out{margin-top:10px;background:#edf5f6;padding:12px;border-radius:10px;line-height:1.5}.muted{color:#687986;line-height:1.5}.bar{height:10px;background:#e7ecef;border-radius:10px;margin:5px 0 12px}.bar i{display:block;height:100%;background:#18b6d3;border-radius:10px}@media(max-width:620px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body><div class="app">
+<div class="hero"><div class="logo">BCITO<span class="green">.</span></div><b>TRADE MENTOR — CONCEPT PROTOTYPE</b><h1>Support the apprentice before they disengage.</h1><p>Mentoring, practical trade learning, wellbeing pathways and de-identified insights.</p></div>
+<div class="note"><b>Discussion prototype:</b> demonstration data only. Not an official BCITO product.</div>
+<div class="tabs"><button class="tab on" data-page="apprentice">Apprentice</button><button class="tab" data-page="mentor">Mentor</button><button class="tab" data-page="insights">BCITO Insights</button></div>
+
+<div id="apprentice" class="page on"><div class="grid">
+<div>
+<div class="card"><b>MY APPRENTICESHIP</b><h2>Kia ora, Sam</h2><p class="muted">Flooring • Year 1 • Northland</p><b>Progress: 32%</b></div>
+<div class="card"><h2>My Mentor</h2><b>Dave Matthews</b><p class="muted">Independent flooring mentor • 22 years in trade</p><div class="choices"><button class="btn primary" id="message">Message Dave</button><button class="btn dark" id="call">Request call</button></div><div id="mentorOut"></div></div>
+<div class="card"><h2>How's your week?</h2><div class="choices"><button class="btn mood">Sweet</button><button class="btn mood">Pretty good</button><button class="btn mood">Struggling</button><button class="btn dark mood">Need to talk</button></div><div id="moodOut"></div></div>
+</div>
+<div>
+<div class="card"><b>LEARN / TRADE CHAT</b><h2>Stuck on a job?</h2><p class="muted">Ask about moisture, coving, welding, preparation, adhesives or product selection.</p><div class="choices"><button class="btn quick">Moisture</button><button class="btn quick">Coving</button><button class="btn quick">Welding</button><button class="btn quick">Product selection</button></div><textarea id="question" placeholder="Describe the job and what you're stuck on..."></textarea><button class="btn primary" id="ask">Ask Trade Chat</button><div id="answer"></div></div>
+<div class="card"><b>WELLBEING</b><h2>Life stuff matters too.</h2><p class="muted">Private pathways for stress, substance dependency, money pressure, fatigue, workplace behaviour and home or relationship issues.</p><button class="btn primary" id="support">Get support</button><div id="supportOut"></div></div>
+<div class="card"><h2>On-job training</h2><p>Are you getting the practical training you need?</p><div class="choices"><button class="btn training">Yes</button><button class="btn training">Some</button><button class="btn dark training">No</button><button class="btn training">Not sure</button></div><div id="trainingOut"></div></div>
+</div></div></div>
+
+<div id="mentor" class="page"><div class="grid"><div class="card"><b>MENTOR DASHBOARD</b><h2>Dave Matthews</h2><p>4 apprentices • 1 needs contact</p></div><div class="card"><h2>My apprentices</h2><button class="btn person">Sam Wilson — Needs contact</button><button class="btn person">Luke Harris — On track</button><button class="btn person">Mia Thompson — On track</button><div id="personOut" class="out">Select an apprentice to review their latest check-in.</div></div></div><div class="card"><h2>Structured outcomes</h2><p class="muted">Record categories such as training gap, employer issue, technical help, wellbeing, follow-up or BCITO referral. Private conversation content stays separate.</p></div></div>
+
+<div id="insights" class="page"><div class="grid"><div class="card"><b>ILLUSTRATIVE DATA</b><h2>What BCITO could learn</h2><b>Training / progress — 31%</b><div class="bar"><i style="width:31%"></i></div><b>Employer / supervisor — 24%</b><div class="bar"><i style="width:24%"></i></div><b>Technical / trade — 18%</b><div class="bar"><i style="width:18%"></i></div><b>Wellbeing / personal — 16%</b><div class="bar"><i style="width:16%"></i></div></div><div><div class="card"><h2>87</h2><b>Early interventions</b></div><div class="card"><h2>23</h2><b>BCITO referrals</b></div><div class="card"><h2>Feedback loop</h2><p>Check-in → Mentor → Structured outcome → De-identified insight → Programme improvement.</p></div></div></div><div class="note"><b>Privacy concept:</b> production use would require approved consent, safeguarding, escalation, access and retention rules.</div></div>
+</div>
+<script>
+const tabs=document.querySelectorAll('.tab'),pages=document.querySelectorAll('.page');tabs.forEach(t=>t.onclick=()=>{tabs.forEach(x=>x.classList.remove('on'));pages.forEach(x=>x.classList.remove('on'));t.classList.add('on');document.getElementById(t.dataset.page).classList.add('on')});
+message.onclick=()=>mentorOut.innerHTML='<div class="out">Prototype: private mentor conversation opens here.</div>';call.onclick=()=>mentorOut.innerHTML='<div class="out">Call request sent to mentor.</div>';
+document.querySelectorAll('.mood').forEach(b=>b.onclick=()=>moodOut.innerHTML='<div class="out">'+((b.textContent==='Struggling'||b.textContent==='Need to talk')?'Early mentor contact would be prompted.':'Check-in saved.')+'</div>');
+document.querySelectorAll('.quick').forEach(b=>b.onclick=()=>question.value=b.textContent==='Moisture'?'My slab is reading 82% RH. Can I install resilient flooring?':'I need help with '+b.textContent.toLowerCase()+'.');
+ask.onclick=()=>{if(!question.value.trim())return;answer.innerHTML='<div class="out"><b>Example Trade Chat response:</b> The production version would identify the product and site conditions, retrieve approved guidance, show the source and route uncertain cases to the mentor.<br><br><b>Example sources:</b> applicable standard such as NZS/AS 1884:2013, authorised BCITO learning content, current manufacturer technical data and the project specification.</div>'};
+support.onclick=()=>supportOut.innerHTML='<div class="out">The apprentice chooses whether to contact their mentor or use an approved professional support pathway.</div>';
+document.querySelectorAll('.training').forEach(b=>b.onclick=()=>trainingOut.innerHTML='<div class="out">'+(b.textContent==='No'?'Possible on-job training gap flagged for mentor follow-up and, where appropriate, BCITO support.':'Response saved.')+'</div>');
+document.querySelectorAll('.person').forEach(b=>b.onclick=()=>personOut.textContent=b.textContent);
+</script></body></html>
